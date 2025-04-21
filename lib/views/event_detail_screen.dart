@@ -175,7 +175,7 @@ Future<void> _fetchCategoryName() async {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: (_isUserRegistered || widget.event.userId.length >= widget.event.capacity || _isRegistering)
+                      onPressed: (_isUserRegistered || widget.event.userId.length >= widget.event.max_capacity || _isRegistering)
                           ? null
                           : _registerForEvent,
                       style: ElevatedButton.styleFrom(
@@ -186,7 +186,7 @@ Future<void> _fetchCategoryName() async {
                           : Text(
                               _isUserRegistered
                                   ? 'Already Registered'
-                                  : widget.event.userId.length < widget.event.capacity
+                                  : widget.event.userId.length < widget.event.max_capacity
                                       ? 'Register for Event'
                                       : 'Event is Full',
                               style: const TextStyle(fontSize: 16),
@@ -233,7 +233,7 @@ Future<void> _fetchCategoryName() async {
 
   Widget _buildCapacitySection(BuildContext context) {
     final usersRegistered = widget.event.userId.length;
-    final capacity = widget.event.capacity;
+    final capacity = widget.event.max_capacity;
     final percentage = (usersRegistered / capacity).clamp(0.0, 1.0);
     
     Color indicatorColor;

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class AuthController {
-  final String _baseUrl = 'http://172.16.12.40:5050';
+  final String _baseUrl = 'http://172.16.12.196:5050';
 
   Future<bool> login(BuildContext context, String email, String password) async {
     print("Login attempt: email=$email");

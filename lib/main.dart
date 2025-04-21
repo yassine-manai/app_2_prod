@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'views/login_view.dart';
+import 'views/my_events_screen.dart';
 import 'views/register_view.dart';
 import 'views/home_screen.dart';
 import 'views/profile_screen.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/balance': (context) => const BalanceScreen(),
+        'my_events': (context) => const MyEventsScreen(),
       },
     );
   }
@@ -45,6 +47,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
 
   final List<Widget> _screens = [
     const HomeScreen(),
+    const MyEventsScreen(),
     const BalanceScreen(),
     const ProfileScreen(),
   ];
@@ -94,6 +97,16 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
                 child: Icon(Icons.event),
               ),
               label: 'Events',
+            ),
+            BottomNavigationBarItem(
+              icon: AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+                height: _selectedIndex == 1 ? 32 : 24,
+                width: _selectedIndex == 1 ? 32 : 24,
+                child: Icon(Icons.event_busy),
+              ),
+              label: 'My Events',
             ),
             BottomNavigationBarItem(
               icon: AnimatedContainer(

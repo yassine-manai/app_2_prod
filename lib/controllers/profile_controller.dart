@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class ProfileController {
   // Hard-coded user ID for now
   final int userId = 13;
-  final String baseUrl = "http://172.16.12.40:5050/mobile";
+  final String baseUrl = "http://172.16.12.196:5050/mobile";
 
   // Profile data model
   Map<String, dynamic> _profileData = {};

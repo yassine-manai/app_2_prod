@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import '../models/event_models.dart';
 
 class EventController {
-  final String baseUrl = 'http://172.16.12.40:5050';
+  final String baseUrl = 'http://172.16.12.196:5050';
 
   /// Fetch events from the server
   Future<List<Event>> getEvents() async {
@@ -13,9 +13,13 @@ class EventController {
 
       if (response.statusCode == 200) {
         List<dynamic> eventData = jsonDecode(response.body);
+        print("Event data: $eventData"); // Debugging line
+        print("Status code: ${response.statusCode}"); // Debugging line
         return eventData.map((data) => Event.fromJson(data)).toList();
       } else {
+        print("Error fetching events: ${response.statusCode}"); // Debugging line	
         throw Exception('Failed to load events: ${response.statusCode}');
+
       }
     } catch (e) {
       throw Exception('Error fetching events: $e');

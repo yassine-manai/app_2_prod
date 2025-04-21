@@ -7,7 +7,8 @@ class Event {
   final String location;
   final String image;
   final int category;
-  final int capacity;
+    final int min_capacity;
+  final int max_capacity;
   final int price;
   final List<int> userId;
 
@@ -19,7 +20,8 @@ class Event {
     required this.location,
     required this.image,
     required this.category,
-    required this.capacity,
+    required this.min_capacity,
+    required this.max_capacity,
     required this.price,
     required this.userId,
   });
@@ -33,7 +35,8 @@ class Event {
       location: json['location'],
       image: json['image'],
       category: json['category'],
-      capacity: json['capacity'],
+      min_capacity: json['min_capacity'],
+      max_capacity: json['max_capacity'],
       price: json['price'],
       userId: List<int>.from(json['user_id']),
     );

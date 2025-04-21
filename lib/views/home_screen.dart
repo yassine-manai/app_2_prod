@@ -590,7 +590,7 @@ class EventCard extends StatelessWidget {
   
   Widget _buildCapacityIndicator(ThemeData theme) {
     final usersRegistered = event.userId.length;
-    final capacity = event.capacity;
+    final capacity = event.max_capacity;
     final percentage = _getCapacityPercentage;
     
     final CapacityStatus status = _getCapacityStatus;
@@ -644,7 +644,7 @@ class EventCard extends StatelessWidget {
   
   double get _getCapacityPercentage {
     final usersRegistered = event.userId.length;
-    final capacity = event.capacity;
+    final capacity = event.max_capacity;
     return (usersRegistered / capacity).clamp(0.0, 1.0);
   }
   
@@ -662,7 +662,7 @@ class EventCard extends StatelessWidget {
     }
   }
   
-  bool get _isEventSoldOut => event.userId.length >= event.capacity;
+  bool get _isEventSoldOut => event.userId.length >= event.max_capacity;
   
   Uint8List _decodeBase64Image(String base64String) {
     String base64Image = base64String.split(',').last;

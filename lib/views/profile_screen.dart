@@ -369,42 +369,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   
-                  // Additional information
-                  if (_controller.profileData['event_id'] != null &&
-                      _controller.profileData['event_id'] is List &&
-                      (_controller.profileData['event_id'] as List).isNotEmpty)
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 24),
-                        const Divider(),
-                        const SizedBox(height: 16),
-                        Text(
-                          'Your Events',
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        const SizedBox(height: 8),
-                        // Display events here
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: (_controller.profileData['event_id'] as List).length,
-                          itemBuilder: (context, index) {
-                            final eventId = (_controller.profileData['event_id'] as List)[index];
-                            return Card(
-                              margin: const EdgeInsets.only(bottom: 8),
-                              child: ListTile(
-                                title: Text('Event #$eventId'),
-                                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                                onTap: () {
-                                  // Navigate to event details
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
+                 
+                   
                 ],
               ),
             ),
